@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="carti1" class="com.springcore.constructor.Carti">
+		<constructor-arg name="name" value="Java" />
+	</bean>
+	<bean name="person1" class="com.springcore.constructor.Person">
+		<constructor-arg name="id" value="12" />
+		<constructor-arg name="name" value="mizan" />
+		<constructor-arg name="name" ref="carti1" />
+	</bean>
+
+	<bean name="student1" class="com.springcore.Student">
+		<property name="id" value="348">
+		</property>
+		<property name="name" value="Mizan">
+		</property>
+		<property name="address" value="Dhaka">
+		</property>
+	</bean>
+	<bean name="student2" class="com.springcore.Student">
+		<property name="id" value="342">
+		</property>
+		<property name="name" value="Mizan">
+		</property>
+		<property name="address" value="Khulna">
+		</property>
+	</bean>
+	<bean name="emp1" class="com.springcore.collections.Emp">
+		<property name="name" value="Mizan">
+		</property>
+		<property name="phones">
+			<list>
+				<value>348338</value>
+				<value>343238</value>
+				<value>348348</value>
+			</list>
+
+		</property>
+		<property name="address">
+			<set>
+				<value>Mirpur</value>
+				<value>Dhanmondi</value>
+				<value>Pollobi</value>
+			</set>
+
+		</property>
+		<property name="courses">
+			<map>
+				<entry key="java" value="2month" />
+				<entry key="c#" value="3month" />
+				<entry key="php" value="1month" />
+			</map>
+
+		</property>
+
+		<property name="props">
+			<props>
+				<prop key="java">dkfjdk</prop>
+				<prop key="c#">dkfjdk</prop>
+				<prop key="Dotnet">dkfjdk</prop>
+
+			</props>
+
+		</property>
+
+	</bean>
+	<bean name="bref" class="com.springcore.ref.B">
+		<property name="Y" value="342">
+		</property>
+
+	</bean>
+	<bean name="aref" class="com.springcore.ref.A" p:X="33"
+		p:oB-ref="bref" />
+	<!-- <property name="X" value="340"> </property> <property name="oB"> <ref 
+		bean="bref" /> </property> <property name="oB" ref="bref"> </property> </bean> -->
+
+
+</beans>
