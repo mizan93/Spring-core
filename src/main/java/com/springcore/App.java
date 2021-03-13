@@ -1,11 +1,16 @@
 package com.springcore;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.springcore.collections.Emp;
+import com.springcore.constructor.Addition;
 import com.springcore.constructor.Carti;
 import com.springcore.constructor.Person;
+import com.springcore.lifecycle.Pepsi;
+import com.springcore.lifecycle.Porota;
+import com.springcore.lifecycle.Samosa;
 import com.springcore.ref.A;
 
 /**
@@ -14,14 +19,19 @@ import com.springcore.ref.A;
  */
 public class App {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-		Student student1 = (Student) context.getBean("student1");
-		Student student2 = (Student) context.getBean("student2");
-		Emp emp1 = (Emp) context.getBean("emp1");
-		A aref = (A) context.getBean("aref");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+//		Student student1 = (Student) context.getBean("student1");
+//		Student student2 = (Student) context.getBean("student2");
+//		Emp emp1 = (Emp) context.getBean("emp1");
+//		A aref = (A) context.getBean("aref");
 //		Person p = (Person) context.getBean("person1");
-		Carti carti = (Carti) context.getBean("carti1");
-		System.out.println(p);
-//		System.out.println("Student2"+student2);
+//		Carti carti = (Carti) context.getBean("carti1");
+////		Addition add = (Addition) context.getBean("add");
+		context.registerShutdownHook();
+//		Samosa samosa = (Samosa) context.getBean("samosa");
+//		Pepsi pepsi = (Pepsi) context.getBean("pepsi");
+		Porota porota = (Porota) context.getBean("porota");
+		System.out.println(porota);
+		
 	}
 }
